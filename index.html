@@ -1,13 +1,12 @@
  <!DOCTYPE html>
-
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
 <title>Hádanka</title>
+
 <style>
 
 body {
-
     font-family: Arial;
     max-width: 700px;
     margin: 80px auto;
@@ -16,13 +15,9 @@ body {
 }
 
 #box {
-
     background: white;
-
     padding: 30px;
-
     border-radius: 10px;
-
 }
 
 input, button {
@@ -33,10 +28,8 @@ input, button {
 }
 
 #error {
-
     color: red;
     margin-top: 10px;
-
 }
 
 </style>
@@ -50,17 +43,15 @@ input, button {
 <h2>🔐 Vyřeš hádanku</h2>
 
 <p>
-
-Kdo půjde na sever, nenajde!
-Kdo půjde na východ, nenajde!
-Kdo půjde na západ, nenajde!
+Kdo půjde na sever, nenajde!<br>
+Kdo půjde na východ, nenajde!<br>
+Kdo půjde na západ, nenajde!<br>
 Hledej černé MMMCCVI na bílé.
-
-Kam půjdeš?
-
 </p>
 
-<input type="text" id="answer" placeholder="Odpověď" onkeypress="enter(event)">
+<p><b>Kam půjdeš?</b></p>
+
+<input type="text" id="answer" placeholder="Odpověď">
 
 <br>
 
@@ -72,31 +63,32 @@ Kam půjdeš?
 
 <script>
 
+const input = document.getElementById("answer");
+
+input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        check();
+    }
+});
+
 function check() {
 
-    let a = document.getElementById("answer").value.toLowerCase().trim();
+    let a = input.value.trim().toLowerCase();
 
     if (a === "jih") {
 
-        window.location.replace("https://github.com/viktormicanAdventura/ADVENTURA-mapa1/blob/280d6675b722b73b12fd3875f2a37b727b7b10b8/Mapa-1.png");
+        window.location.href =
+        "https://raw.githubusercontent.com/viktormicanAdventura/ADVENTURA-mapa1/280d6675b722b73b12fd3875f2a37b727b7b10b8/Mapa-1.png";
 
     } else {
 
-        document.getElementById("error").innerText = "Špatně, zkus to znovu.";
+        document.getElementById("error").innerText =
+        "Špatně, zkus to znovu.";
 
     }
-
-}
-
-function enter(e){
-
-    if(e.key === "Enter") check();
-
 }
 
 </script>
 
-
 </body>
-
 </html>
