@@ -51,13 +51,12 @@ input, button {
 
 <p>
 
-Jsem něco, co roste, ale nikdy nežije.  
+Kdo půjde na sever, nenajde!
+Kdo půjde na východ, nenajde!
+Kdo půjde na západ, nenajde!
+Hledej černé MMMCCVI na bílé.
 
-Nemám plíce, ale potřebuji vzduch.  
-
-Když mě vezmeš pryč, všechno zmizí.  
-
-Co jsem?
+Kam půjdeš?
 
 </p>
 
@@ -77,30 +76,26 @@ function check() {
 
     let a = document.getElementById("answer").value.toLowerCase().trim();
 
-    if (a === "oheň" || a === "ohen") {
+    if (a === "Jih") {
 
-        // ODESLÁNÍ DO GOOGLE FORM
-        fetch("https://docs.google.com/forms/d/e/1FAIpQLScGv3T7fye2jSTT6_YjXLrEOFM8kUzLnioAAgcj375fNgf63g/formResponse", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    body: "entry.1726680341=Spravne"
-});
+        window.location.replace("https://github.com/viktormicanAdventura/ADVENTURA-mapa1/blob/280d6675b722b73b12fd3875f2a37b727b7b10b8/Mapa-1.png");
 
-        // ZOBRAZENÍ OBRÁZKU
-        document.getElementById("box").innerHTML = `
-            <h2>✅ Správně!</h2>
-            <img src="https://raw.githubusercontent.com/viktormicanAdventura/test2/main/Mapa-1.png" style="max-width:100%">
-        `;
 
     } else {
 
         document.getElementById("error").innerText = "Špatně, zkus to znovu.";
 
     }
+
 }
+
+
+function enter(e){
+
+    if(e.key === "Enter") check();
+
+}
+
 </script>
 
 
